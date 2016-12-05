@@ -30,6 +30,7 @@ done
 VAR_OPTIONS=""
 if [ -z "$VAR_TARGET" ]; then           #target is empty
     echo "$(tput setaf 1)[-] No target given. Use '-t' option to specify a target."
+    exit
 else
     if [ -z "$VAR_USER" ]; then         #user is empty
         VAR_OPTIONS="-U \"\" -N" 
@@ -65,20 +66,20 @@ else
         VAR_COMMAND="rpcclient $VAR_OPTIONS -c 'queryuser $usr' $VAR_TARGET | grep 'User Name' | cut -f 2 -d ':' | sed -r 's/\s*(.*?)\s*$/\1/'"
         eval $VAR_COMMAND >> /tmp/dom_admins.txt
     done
+    
+    echo -n "$(tput setaf 7)"
+    echo "----------------------------------------------------------"
+    echo "[*] Result of enumeration"
+    echo "----------------------------------------------------------"
+    echo "$(tput setaf 2)[+] Domain users in /tmp/dom_users.txt"
+    echo -n "$(tput setaf 7)"
+    cat /tmp/dom_users.txt
+    echo ""
+    echo "$(tput setaf 2)[+] Domain users in /tmp/dom_groups.txt"
+    echo -n "$(tput setaf 7)"
+    cat /tmp/dom_groups.txt
+    echo ""
+    echo "$(tput setaf 2)[+] Domain users in /tmp/dom_admins.txt"
+    echo -n "$(tput setaf 7)"
+    cat /tmp/dom_admins.txt
 fi
-
-echo -n "$(tput setaf 7)"
-echo "----------------------------------------------------------"
-echo "[*] Result of enumeration"
-echo "----------------------------------------------------------"
-echo "$(tput setaf 2)[+] Domain users in /tmp/dom_users.txt"
-echo -n "$(tput setaf 7)"
-cat /tmp/dom_users.txt
-echo ""
-echo "$(tput setaf 2)[+] Domain users in /tmp/dom_groups.txt"
-echo -n "$(tput setaf 7)"
-cat /tmp/dom_groups.txt
-echo ""
-echo "$(tput setaf 2)[+] Domain users in /tmp/dom_admins.txt"
-echo -n "$(tput setaf 7)"
-cat /tmp/dom_admins.txt
