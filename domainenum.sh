@@ -1,8 +1,11 @@
 #!/bin/bash
 
-echo "---------------------------------------------------------------"
+echo "-----------------------------------------------------------------------------------------"
 echo "[*] evait security GmbH - Quick domain enumeration script v 1.0"
-echo "---------------------------------------------------------------"
+echo "-----------------------------------------------------------------------------------------"
+echo "[*] Usage with null session: bash domainenum.sh -t {TARGET IP}"
+echo "[*] Usage with credentials: bash domainenum.sh -u {USERNAME} -p {PASSWORD} -t {TARGET IP}"
+echo "-----------------------------------------------------------------------------------------"
 while [[ $# -gt 1 ]]
 do
 key="$1"
