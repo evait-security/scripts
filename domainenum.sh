@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "-----------------------------------------------------------------------------------------"
-echo "[*] evait security GmbH - Quick domain enumeration script v 1.0"
+echo "[*] evait security GmbH - Quick domain enumeration script v1.1"
 echo "-----------------------------------------------------------------------------------------"
 echo "[*] Usage with null session: bash domainenum.sh -t {TARGET IP}"
 echo "[*] Usage with credentials: bash domainenum.sh -u {USERNAME} -p {PASSWORD} -t {TARGET IP}"
