@@ -6,6 +6,8 @@ if [ $# -gt 0 ]
 		rm -f /tmp/hashcat.txt
 		perl scripts/convert_netNTLM_to_hashcat.pl /tmp/tmp.txt /tmp/hashcat.txt
 		cat /tmp/hashcat.txt | sort -u
+		rm -f /tmp/hashcat.txt
+		rm -f /tmp/tmp.txt
 	else
 		echo "[*] Usage: bash convert_hostapd_hashcat.sh {hostapd-logfile}"
 fi
